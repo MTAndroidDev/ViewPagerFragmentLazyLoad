@@ -1,7 +1,7 @@
 ## Android中ViewPager+Fragment取消(禁止)预加载延迟加载(懒加载)问题解决方案
 
 
-## 用法
+### 用法
 
 LazyLoadFragment是一个抽象类，可以作为BaseFragment,继承它。
 
@@ -53,7 +53,7 @@ LazyLoadFragment是一个抽象类，可以作为BaseFragment,继承它。
 }
 ```
  
-## 看效果界面
+### 看效果界面
 
 ![界面](https://github.com/linglongxin24/ViewPagerFragmentLazyLoad/blob/master/screenshorts/userinterface.jpg?raw=true)
 ![Log](https://github.com/linglongxin24/ViewPagerFragmentLazyLoad/blob/master/screenshorts/log.png?raw=true)
