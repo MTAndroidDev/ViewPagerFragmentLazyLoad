@@ -30,10 +30,17 @@ public abstract class LazyLoadFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(setContentView(), container, false);
+        createView(inflater,container,savedInstanceState);
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        viewCreate(view,savedInstanceState);
         isInit = true;
         /**初始化的时候去加载数据**/
         isCanLoadData();
-        return view;
     }
 
     /**
@@ -81,8 +88,22 @@ public abstract class LazyLoadFragment extends Fragment {
         if (!TextUtils.isEmpty(message)) {
             Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
         }
-
     }
+
+    /***
+     * 对应 onCreateView
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     */
+    protected abstract void createView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState);
+
+    /**
+     * 对应 onViewCreate
+     * @param view
+     * @param savedInstanceState
+     */
+    protected abstract void viewCreate(View view, @Nullable Bundle savedInstanceState);
 
     /**
      * 设置Fragment要显示的布局
